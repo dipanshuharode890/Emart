@@ -13,6 +13,7 @@ import ForgetPassword from './component/pages/ForgetPassword';
 import Footer from './component/footer/Footer';
 import About from './component/pages/About';
 import Blog from './component/pages/Blog';
+import Contact from './component/pages/Contact';
 
 
 function App() {
