@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
@@ -7,8 +7,6 @@ import { useLocation } from 'react-router-dom';
 
 function Checkout() {
   const { isLoggedIn, user } = useAuth();
-  const [discount, setDiscount] = useState(0);
-
   const navigate = useNavigate();
 
   const [cart, setCart] = useState([]);
@@ -64,14 +62,8 @@ function Checkout() {
     }
   }, [user]);
 
-  // 📦 Calculate totals
-  // const subtotal = cart.reduce((acc, item) => acc + (item.price * 83 * item.quantity), 0);
-  // const shipping = subtotal > 0 && subtotal < 1000 ? 90 : 0;
-  // const discountAmount = (subtotal * discount) / 100;
-  // const total = subtotal - discountAmount + shipping;
-
   const location = useLocation();
-  const { cartItems, summary } = location.state || {};
+  const { summary } = location.state || {};
 
   // 📮 Pincode handler
   const handlePincodeChange = async (e) => {

@@ -6,7 +6,7 @@ import { ImTruck } from 'react-icons/im'
 function Footer() {
   return (
     <>
-      <footer className='px-[4%] lg:px-[8%] pt-16'>
+      <footer className='px-[4%] lg:px-[8%] pt-5'>
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-4 gap-4 py-8">
           <div className="flex items-center gap-3">
             <ImTruck className='text-4xl text-yellow-500' />
@@ -38,7 +38,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg-grid-cols-4 gap-6 px-4 py-16 border-t border-yellow-500">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg-grid-cols-4 gap-6 px-4 py-8 border-t border-yellow-500">
           <div className="space-y-2">
             <a href="#">
               <h2 className="text-3xl text-black font-bold">E<span className='text-yellow-500'>-Mart</span></h2>

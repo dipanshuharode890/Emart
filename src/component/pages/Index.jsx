@@ -26,10 +26,8 @@ import ProductData from "../../Data.json";
 
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import { FaCartArrowDown } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
 import Shop from './Shop';
-
 
 function Index() {
 
@@ -66,77 +64,59 @@ function Index() {
   return (
     <>
       <div className="bg-element">
-        {/* Hero  */}
         <div className="hero-bg">
-          <header className="px-[4%] lg:px-[8%] py-12">
-            <Swiper
-              slidesPerView={1}
-              spaceBetween={0}
-              loop={true}
-              modules={[Autoplay, EffectFade]}
-              autoplay={{
-                delay: 3000,
-              }}
-              effect='fade'
-              fadeEffect={{ crossFade: true }}
-            >
-              <SwiperSlide>
-                <div className="hero flex gap-6">
-                  <div className="hero-content flex flex-col justify-start items-start w-1/2">
-                    <h1 className='text-6xl mb-3'> THE NEW <br /> STANDARD</h1>
-                    <h5 className='font-bold text-l'>UNDER FAVORABLE SMARTWATCHS</h5>
-                    <span className='hero-span text-2xl text-gray-800 font-semibold mt-3'>
-                      FROM <br />
-                      <div className="text-5xl font-bold text-gray-800">
-                        ₹999
-                      </div>
-                    </span>
-                    <button className='bg-yellow-400 px-[8%] py-2 rounded-md font-semibold text-xl mt-5 hover:bg-yellow-500 transition'>Start Buying</button>
-                  </div>
-                  <div className="hero-image hide w-1/2">
-                    <img src={heroImg} alt="" />
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="hero flex gap-6">
-                  <div className="hero-content flex flex-col justify-start items-start w-1/2">
-                    <h1 className='text-6xl mb-3'> THE NEW <br /> STANDARD</h1>
-                    <h5 className='font-bold text-l'>UNDER FAVORABLE SMARTPHONES</h5>
-                    <span className='hero-span text-2xl text-gray-800 font-semibold mt-3'>
-                      FROM <br />
-                      <div className="text-5xl font-bold text-gray-800">
-                        ₹9999
-                      </div>
-                    </span>
-                    <button className='bg-yellow-400 px-[8%] py-2 rounded-md font-semibold text-xl mt-5 hover:bg-yellow-500 transition'>Start Buying</button>
-                  </div>
-                  <div className="hero-image hide w-1/2">
-                    <img src={heroImg2} alt="" />
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="hero flex gap-6">
-                  <div className="hero-content flex flex-col justify-start items-start w-1/2">
-                    <h1 className='text-6xl mb-3'> THE NEW <br /> STANDARD</h1>
-                    <h5 className='font-bold text-l'>UNDER FAVORABLE SPEAKERS</h5>
-                    <span className='hero-span text-2xl text-gray-800 font-semibold mt-3'>
-                      FROM <br />
-                      <div className="text-5xl font-bold text-gray-800">
-                        ₹1999
-                      </div>
-                    </span>
-                    <button className='bg-yellow-400 px-[8%] py-2 rounded-md font-semibold text-xl mt-5 hover:bg-yellow-500 transition'>Start Buying</button>
-                  </div>
-                  <div className="hero-image hide w-1/2">
-                    <img src={heroImg3} alt="" />
-                  </div>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </header>
-        </div>
+  <header className="px-4 sm:px-6 lg:px-16 py-10 sm:py-16">
+    <Swiper
+      slidesPerView={1}
+      loop={true}
+      modules={[Autoplay, EffectFade]}
+      autoplay={{ delay: 3000 }}
+      effect="fade"
+      fadeEffect={{ crossFade: true }}
+    >
+      {[
+        { title: 'SMARTWATCHS', price: '₹999', img: heroImg },
+        { title: 'SMARTPHONES', price: '₹12999', img: heroImg2 },
+        { title: 'SPEAKERS', price: '₹1799', img: heroImg3 },
+      ].map((item, idx) => (
+        <SwiperSlide key={idx}>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            
+            {/* Left Content */}
+            <div className="w-full lg:w-1/2 text-center lg:text-left">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight mb-4">
+                THE NEW <br className="hidden sm:block" /> STANDARD
+              </h1>
+              <h5 className="text-lg sm:text-xl font-semibold text-gray-700 mb-3">
+                UNDER FAVORABLE {item.title}
+              </h5>
+
+              {/* Price Block */}
+              <div className="text-xl sm:text-2xl text-gray-800 font-semibold mb-4">
+                <span className="block">FROM</span>
+                <span className="block text-4xl sm:text-5xl font-bold mt-1">{item.price}</span>
+              </div>
+
+              <button className="bg-yellow-400 hover:bg-yellow-500 transition px-6 py-3 rounded-md text-base sm:text-lg font-semibold mt-3">
+                Start Buying
+              </button>
+            </div>
+
+            {/* Right Image */}
+            <div className="w-full lg:w-1/2 flex justify-center">
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-full max-w-[300px] max-h-[200px] sm:max-h-[280px] lg:max-h-[400px] object-contain"
+              />
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </header>
+</div>
+
 
         {/* Banners */}
         <div className='px-[4%] lg:px-[8%] py-12'>
@@ -193,7 +173,7 @@ function Index() {
 
           {/* Products Cards */}
           <div className='lg:col-span-3'>
-            <div className='grid products-warp gap-4'>
+            <div className='grid products-warp gap-3'>
               <Shop hideLoadMore={true} hideHeader={true} />
             </div>
             <ToastContainer position='top-right' autoClose={1500} />
@@ -233,7 +213,7 @@ function Index() {
         </div>
 
         {/* Brands */}
-        <div className='px-[4%] lg:px-[8%] py-8'>
+        <div className='px-[4%] lg:px-[8%] py-3'>
           <Swiper
             slidesPerView={2}
             spaceBetween={20}

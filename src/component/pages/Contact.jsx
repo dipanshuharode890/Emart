@@ -51,16 +51,16 @@ function Contact() {
                         <h4 className='font-semibold text-base mb-2 text-gray-800'>Careers</h4>
                         <p className="text-sm text-gray-600">
                             Interested in joining our team? Reach out at : <br />
-                            <div className='flex'>
+                            <span className='flex'>
                                 <TbMailForward className='text-yellow-500 mr-2' />
                                 <a href="#" className='text-yellow-500 hover:underline'>contact@emart.com</a>
-                            </div>
+                            </span>
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div className='w-full px-[4%] lg:px-[8%] pb-16'>
+            <div className='w-full px-[4%] lg:px-[8%] pb-4'>
                 <div className="text-center mb-7">
                     <h3 className='text-xl font-bold text-gray-800'>Our Location</h3>
                     <div className="w-20 h-[3px] bg-yellow-300 mx-auto mt-2"></div>
@@ -70,9 +70,9 @@ function Contact() {
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58779.40320499187!2d76.00134636652217!3d22.960805562008606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396317850c371de7%3A0x22947c209f24505!2sDewas%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1752928940886!5m2!1sen!2sin"
                             width="100%"
                             height="100%"
-                            allowfullscreen
+                            allowFullScreen
                             loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
+                            referrerPolicy="no-referrer-when-downgrade"
                             className='border-0'>
                         </iframe>
                     </div>

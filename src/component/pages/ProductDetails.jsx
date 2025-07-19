@@ -48,21 +48,6 @@ function ProductDetails() {
         setMousePosition({ x, y });
     };
 
-    const handleWishlistIocn = () => {
-        const wishlist = JSON.parse(localStorage.getItem('wishlistItems')) || [];
-        const exists = wishlist.some(item => item.id === product?.id);
-        let updatedList;
-        if (exists) {
-            updatedList = wishlist.filter(item => item.id !== product.id);
-            toast.info("Item removed from wishlist");
-        } else {
-            updatedList = [...wishlist, product];
-            toast.success("Item added to wishlist");
-        }
-        localStorage.setItem('wishlistItems', JSON.stringify(updatedList));
-        setIsWishListed(!exists);
-    };
-
     const handleAddToWishlist = () => {
         const wishlist = JSON.parse(localStorage.getItem('wishlistItems')) || [];
         if (!wishlist.includes(product.id)) {

@@ -65,10 +65,10 @@ function Shop({ hideLoadMore = false, hideHeader = false }) {
                 </div>
             )}
 
-            <div className="p-6">
+            <div className="p-4">
                 <h2 className="text-2xl font-bold mb-4"></h2>
 
-                <div className='grid products-warp grid-cols-2 md:grid-cols-4 gap-4'>
+                <div className='grid products-warp grid-cols-2 md:grid-cols-4 gap-3'>
                     {products.slice(0, visibleCount).map((product, index) => {
                         const isOffer = index % 5 === 0;
                         const originalPrice = Math.round(product.price * 83);
@@ -78,15 +78,15 @@ function Shop({ hideLoadMore = false, hideHeader = false }) {
                         return (
                             <div key={product.id} className='bg-white shadow-md rounded-xl p-2 flex flex-col items-start hover:shadow-xl transition duration-300 group border border-gray-100 cursor-pointer'>
                                 {isOffer && (
-                                    <p className='text-[10px] text-white font-bold mb-1 bg-green-600 px-2 py-1 rounded'>
+                                    <p className='text-[8px] text-white font-bold mb-1 bg-green-600 px-2 py-1 rounded'>
                                         Special Offer - {discount}% OFF
                                     </p>
                                 )}
-                                <p className='text-xs text-white font-bold mb-1 bg-red-600 px-3 py-2 rounded'>{product.category}</p>
+                                <p className='text-xs text-white font-bold mb-1 bg-red-600 px-2 py-1 rounded'>{product.category}</p>
                                 <img
                                     src={product.image}
                                     alt={product.title}
-                                    className='w-4/5 h-32 object-contain group-hover:scale-105 transition-transform duration-300'
+                                    className='w-4/5 h-28 object-contain group-hover:scale-105 transition-transform duration-300'
                                     onClick={() => navigate(`/product/${product.id}`)}
                                 />
                                 <h4

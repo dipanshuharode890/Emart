@@ -1,8 +1,5 @@
-// ✅ React 19 Authentication Pages with Validation & New Hooks
 
-// --- Signup.jsx ---
 import React, { useState } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 

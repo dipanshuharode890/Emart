@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BsGlobeCentralSouthAsia, BsPersonCircle } from 'react-icons/bs';
 import { FaCartArrowDown, FaPhoneSquareAlt, FaRegHeart } from 'react-icons/fa';
 import { IoMdMenu } from 'react-icons/io';
@@ -32,58 +32,39 @@ function Navbar() {
 
 
     return (
-        <nav className="w-full flex flex-col justify-center items-center relative">
-            {/* Topbar */}
-            <div className="top-nav w-full flex justify-between items-center px-[4%] lg:px-[8%] py-2 bg-black text-white text-sm">
-                <div className="flex w-1/2 gap-5 items-center">
-                    <p className="hide">Free Shipping On All Orders over ₹1000</p>
-                </div>
+        <nav className="w-full flex flex-col items-center relative text-sm font-sans">
+            {/* Top Bar */}
+            <div className="w-full flex flex-wrap justify-between items-center bg-black text-white px-4 sm:px-6 lg:px-16 py-2 text-xs sm:text-sm">
+                <p className="hidden sm:block">Free Shipping On All Orders over ₹1000</p>
 
-                <ul className='flex gap-5 w-1/2 justify-end items-center'>
-                    <li className='text-yellow-400 flex gap-1 items-center'>
-                        <a href="#" className='flex gap-1'><IoFlashSharp /> Flash Sale</a>
+                <ul className="flex gap-3 flex-wrap justify-end items-center w-full sm:w-auto mt-2 sm:mt-0">
+                    <li className="text-yellow-400 flex gap-1 items-center">
+                        <IoFlashSharp /> <span>Flash Sale</span>
                     </li>
+
                     {isLoggedIn ? (
-                        <li className="flex gap-3 items-center text-yellow-400">
+                        <li className="flex gap-2 items-center text-yellow-400">
                             <BsPersonCircle />
                             <span className="capitalize font-semibold">{user?.firstName || 'User'}</span>
-                            <button
-                                onClick={logout}
-                                className="hover:text-white text-sm border-l border-white pl-3 ml-3"
-                            >
-                                Logout
-                            </button>
+                            <button onClick={handleLogout} className="text-white border-l border-white pl-3 ml-3 text-xs">Logout</button>
                         </li>
                     ) : (
                         <>
-                            <li>
-                                <Link to="/login" className='hover:text-yellow-400 flex gap-1 transition'>
-                                    <BsPersonCircle /> Login
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/signup" className='hover:text-yellow-400 flex gap-1 transition'>
-                                    <BsPersonCircle /> Signup
-                                </Link>
-                            </li>
+                            <li><Link to="/login" className="hover:text-yellow-400 flex gap-1"><BsPersonCircle />Login</Link></li>
+                            <li><Link to="/signup" className="hover:text-yellow-400 flex gap-1"><BsPersonCircle />Signup</Link></li>
                         </>
                     )}
 
-                    <li>
-                        <Link
-                            to="/contact"
-                            className="hover:text-yellow-400 flex gap-1 transition">
-                            <BsGlobeCentralSouthAsia /> Contact
-                        </Link>
-                    </li>
+                    <li><Link to="/contact" className="hover:text-yellow-400 flex gap-1"><BsGlobeCentralSouthAsia />Contact</Link></li>
                 </ul>
             </div>
 
             {/* Middle Navbar */}
-            <div className="middle-nav w-full flex justify-between items-center px-[4%] lg:px-[8%] py-3 gap-8">
-                <div className="w-1/3">
+            <div className="w-full flex flex-wrap items-center justify-between px-4 sm:px-6 lg:px-16 py-4 gap-4">
+                {/* Logo */}
+                <div className="flex-shrink-0 whitespace-nowrap">
                     <Link to="/">
-                        <h2 className="text-4xl font-bold text-black">
+                        <h2 className="text-3xl sm:text-4xl font-bold text-black">
                             E<span className="text-yellow-500">-Mart</span>
                         </h2>
                     </Link>
@@ -107,16 +88,15 @@ function Navbar() {
                         Search
                     </button>
                 </div>
-                <div className="get-help flex gap-5 items-center w-1/3 justify-center">
+                <div className="w-full sm:w-auto flex justify-center sm:justify-end flex-wrap gap-3">
                     <div className="flex gap-2 items-center">
-                        <span className="text-2xl text-gray-500">
-                            <FaPhoneSquareAlt />
-                        </span>
+                        <FaPhoneSquareAlt className="text-2xl text-gray-500" />
                         <div className="flex flex-col text-xs">
                             <span className="text-gray-500">Need Help?</span>
                             <span className="text-yellow-600 font-bold">+91 9874563210</span>
                         </div>
                     </div>
+
                     <Link to="/wishlist" className="flex gap-2 items-center ">
                         <span className="text-3xl text-gray-500">
                             <FaRegHeart />

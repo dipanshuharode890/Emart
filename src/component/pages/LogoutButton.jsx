@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 function LogoutButton() {
   const navigate = useNavigate();
   
-
   const handleLogout = () => {
     localStorage.removeItem('authUser'); // or whatever key you use to store logged-in user
     navigate('/login');

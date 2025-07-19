@@ -66,7 +66,7 @@ function Wishlist() {
     };
 
     return (
-        <div className="w-full px-4 sm:px-8 py-12 bg-white text-gray-800">
+        <div className="w-full px-4 sm:px-8 py-6 bg-white text-gray-800">
             <Toaster position='top-right' reverseOrder={false} />
             <h1 className='text-3xl font-bold text-center mb-8 flex justify-center items-center gap-2'>
                 <FaRegHeart className='text-pink-500' /> My Wishlist

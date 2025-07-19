@@ -27,7 +27,6 @@ a {
   text-decoration: none;
 }
 
-
 /* HERO */
 
 .bg-element{
@@ -174,13 +173,11 @@ a {
   }
 }
 
-
 /* Banner */
 
 @media (max-width: 575px){
   .banner-1{
     background-size: 800%;
-    background-repeat: no-repeat;
-    
+    background-repeat: no-repeat; 
   }
 }
